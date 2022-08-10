@@ -2,6 +2,8 @@ import React from 'react'
 import {data} from '../../dataFromApi';
 import { useState, useEffect } from 'react';
 
+
+
 const Table = ({data, descriptor}) => {
 
     console.log("Table coomponent");
@@ -11,7 +13,7 @@ const Table = ({data, descriptor}) => {
 
 
   return (
-    <table>
+    <table className='coin-table'>
         <thead>
             <tr>
                 {descriptor.map((col) => {

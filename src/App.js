@@ -1,7 +1,3 @@
-import './App.css';
- 
-import {data} from './dataFromApi';
-
 
 function App() {
 

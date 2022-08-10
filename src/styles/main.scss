@@ -1,0 +1,12 @@
+@import '../Components/Table/style.scss';
+@import '../Components/Header/style.scss';
+@import '../Components/MuiTable/style.scss';
+
+body{
+    margin: 0;
+}
+
+.toggle-button{
+    display: flex;
+    justify-content: end;
+}
