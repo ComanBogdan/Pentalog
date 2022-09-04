@@ -7,11 +7,9 @@ export function useAppContext() {
 }
 
 export default function AppContextProvider({ children }) {
-  const [path, setPath] = useState("/cryptocurrencies");
-  const [id, setId] = useState();
-
+ 
   return (
-    <AppContext.Provider value={{ path, setPath, id, setId }}>
+    <AppContext.Provider value={{}}>
       {children}
     </AppContext.Provider>
   );

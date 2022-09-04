@@ -1,6 +1,7 @@
 import React from 'react'
 import CoinView from '../../Components/ViewComponents/CoinView'
 import {useParams} from "react-router-dom"
+import SubMenu from '../../Components/SubMenu';
 
 const Coin = ({id}) => {
     
@@ -13,7 +14,11 @@ const Coin = ({id}) => {
     console.log(coinId);
 
   return (
+    <>
+    <SubMenu />
     <CoinView id={coinId}/>
+    </>
+    
   )
 }
 

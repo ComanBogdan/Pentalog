@@ -6,18 +6,17 @@ import MuiTable from '../../MuiTable'
 
 const CryptocurrenciesTableView = ({data}) => {
 
-    const [coins, setCoins] = useState([]);
+    // const [coins, setCoins] = useState([]);
 
+    // //TO DO: implement API Fetching
+    // useEffect( () => {
 
+    // setCoins(data);
 
-
-    //TO DO: implement API Fetching
-    useEffect( () => {
-
-    setCoins(data);
-
-    }, []);
-    //
+    // }, []);
+    // //
+    console.log(data);
+    
 
     const [descriptor, setDescriptor] = useState([
         {
@@ -86,6 +85,7 @@ const CryptocurrenciesTableView = ({data}) => {
             label: '7d',
             accessor: 'price_change_percentage_7d_in_currency',
             render: (item) => {
+                if(item.price_change_percentage_7d_in_currency)
                 if(item.price_change_percentage_7d_in_currency > 0)
                     return <TableCell key={`${item.price_change_percentage_7d_in_currency}_${item.name}`} align='center' sx={{color: 'green'}}>{item.price_change_percentage_7d_in_currency.toFixed(1) + '%'}</TableCell>
                 else 
@@ -138,7 +138,7 @@ const CryptocurrenciesTableView = ({data}) => {
         <TextField onChange={handleTextField} id="standard-basic" label="Search" variant="standard" />
         <Button onClick={handleClickToggle}>Toggle Chart</Button>
     </div>
-        <MuiTable data={coins.filter((coin) => coin.name.toLowerCase().includes(search.toLowerCase()))}//coin.toLowerCase().includes(search.toLowerCase())
+        <MuiTable data={data.filter((coin) => coin.name.toLowerCase().includes(search.toLowerCase()))}//coin.toLowerCase().includes(search.toLowerCase())
         descriptor={descriptor}/>
     </>
   )

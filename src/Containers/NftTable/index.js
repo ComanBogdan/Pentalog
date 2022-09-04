@@ -1,8 +1,14 @@
 import React from 'react'
+import SubMenu from '../../Components/SubMenu'
 
 const NftTable = () => {
   return (
-    <div>NftTable</div>
+
+    <div>
+      <SubMenu />
+      <div>NftTable</div>
+    </div>
+    
   )
 }
 

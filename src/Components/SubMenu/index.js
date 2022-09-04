@@ -1,29 +1,34 @@
-import { Button, Container } from '@mui/material';
+import { Button, Container, Grid } from '@mui/material';
+import { Box } from '@mui/system';
 import React from 'react'
-import { useAppContext } from '../../Containers/App/context';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const SubMenu = () => {
 
-    const { setPath, setId} = useAppContext();
-
     let navigate = useNavigate();
 
-    const handleClickDisplay = (param) => {
-        setPath(param);
-        setId('');
-    }
   return (
     <Container>
-            {/* <div>
-                <Button onClick={() => handleClickDisplay("/cryptocurrencies")}>Cryptocurrencies</Button>
-                <Button onClick={() => handleClickDisplay("/exchanges")}>Exchanges</Button>
-                <Button onClick={() => handleClickDisplay("/nft")}>NFT</Button>
-            </div> */}
+      <Box sx={{flexGrow: 1}}>
+      <Grid container spacing={{ xs: 2, md: 3}} columns={{ xs:4, sn:8, md:12}}>
+        <Grid item xs={4}>
+        <Button onClick={() => {navigate("/")}}>Cryptocurrencies </Button>
+
+        </Grid>
+        <Grid item xs={4}>
+        <Button onClick={() => {navigate("/exchanges")}}>Exchanges </Button>
+        </Grid>
+        <Grid item xs={4}>
+        <Button onClick={() => {navigate("/nft")}}>NFT </Button>
+        </Grid>
+
+      </Grid>
+
+      </Box>
+      
             
-            <Button onClick={() => {navigate("/")}}>Cryptocurrencies </Button>
-            <Button onClick={() => {navigate("/exchanges")}}>Exchanges </Button>
-            <Button onClick={() => {navigate("/nft")}}>NFT </Button>
+            
+            
         </Container>
   )
 }
