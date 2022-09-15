@@ -1,22 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CoinView from '../../Components/ViewComponents/CoinView'
 import {useParams} from "react-router-dom"
 import SubMenu from '../../Components/SubMenu';
+import { useDispatch } from 'react-redux';
+import { FETCH_COIN_REQUEST } from './reducer';
 
 const Coin = ({id}) => {
+  
+  const dispatch = useDispatch();
     
-    //TO DO implement API Fetch
+  
+    let { coinName } = useParams();
 
-    //
+    useEffect(()=>{
+      dispatch({type: FETCH_COIN_REQUEST, payload: coinName.toLowerCase()})
+    },[])
 
-    let { coinId } = useParams();
 
-    console.log(coinId);
+
+  
 
   return (
     <>
     <SubMenu />
-    <CoinView id={coinId}/>
+    <CoinView id={coinName}/>
     </>
     
   )

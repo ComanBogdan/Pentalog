@@ -70,31 +70,28 @@ const SignupView = ({ handleSubmit}) => {
                 </Grid>
                 <Grid item>
                 {
-                isLoading ? 
+                isLoading &&
                 <Box sx={{ display: 'flex' }}>
                      <CircularProgress />
                 </Box>
-                : <div></div>
                 }
 
                 </Grid>
                 <Grid item>
                 {
-                error ? 
+                error &&
                 <Box sx={{ display: 'flex' }}>
                     <Alert severity="error">{error}</Alert>
                 </Box>
-                : <div></div>
                 }
 
                 </Grid>
                 <Grid item>
                 {
-                success ? 
+                success &&
                 <Box sx={{ display: 'flex' }}>
                     <Alert severity="success">Account created successfully</Alert>
                 </Box>
-                : <div></div>
                 }
 
                 </Grid>

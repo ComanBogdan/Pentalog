@@ -23,7 +23,7 @@ const MuiTable = ({data, descriptor}) => {
             <TableBody>
                 {data.map((item) => {
                     //onClick={() => {setPath("/coin"); setId(item.market_cap_rank)}}
-                    return <TableRow key={`${item.name}_${item.market_cap_rank}`} hover={true} onClick={() => navigate(`/coin/${item.market_cap_rank}`)}> 
+                    return <TableRow key={`${item.name}_${item.market_cap_rank}`} hover={true} > 
                         {descriptor.map((col) => {
                             if(!(col.enable == false))
                                 if(col.render) return col.render(item);

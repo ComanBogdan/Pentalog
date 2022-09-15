@@ -3,6 +3,7 @@ export const SIGNUP_REQUEST_FAILED = "SIGNUP_REQUEST_FAILED"
 export const SIGNUP_REQUEST_SUCCES = "SIGNUP_REQUEST_SUCCES"
 
 export const UPDATE_ACCOUNT ="UPDATE_ACCOUNT"
+export const FAKE_BACKEND_VALIDATION="FAKE_BACKEND_VALIDATION"
 
 
 const initialState={
@@ -30,6 +31,11 @@ export default (state = initialState, action) => {
             return {account: {username: "", password: "", passwordConfirm: ""}, isLoading: false, error: "", success: true}
         case SIGNUP_REQUEST_FAILED:
                 return {...state, isLoading: false, error: action.payload, success: false}
+
+        
+
+        case FAKE_BACKEND_VALIDATION:
+            return {...state, isLoading: true, error:"", success:false}
 
         
             

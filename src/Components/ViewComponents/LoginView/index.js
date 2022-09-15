@@ -10,8 +10,11 @@ const LoginView = ({ handleSubmit }) => {
     let navigate = useNavigate();
 
     const state = useSelector((store) => store.login)
-    const {success} = state;
+    const {success, redirect} = state;
 
+    if(redirect){
+        navigate('/')
+    }
     
 
     const defaultValues = {

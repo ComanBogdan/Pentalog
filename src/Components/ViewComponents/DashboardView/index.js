@@ -1,63 +1,33 @@
-import { Box, Button, Checkbox, TableCell, TextField } from '@mui/material';
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { SEND_WATCHLIST_REQUEST } from '../../../Containers/CryptocurrenciesTable/reducer';
+import { Box, Card, CardContent, Checkbox, Grid, Paper, TableCell, Typography } from '@mui/material'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import MuiTable from '../../MuiTable'
 
-
-
-const CryptocurrenciesTableView = ({data}) => {
-
-    const dispatch = useDispatch();
+const DashboardView = ({username, data}) => {
     const navigate = useNavigate();
-    const state = useSelector((store) => store.app)
-    const {username, id, watchlist} = state;
 
-    const [checked, setChecked] = useState({})
-
-
-    //init
-
-    // useEffect (()=>{
-    //         let temp = {};
-    //         data.map((item) => {
-    //             temp = {...temp, [item.market_cap_rank]: false}
-    //         })
-    //         setChecked(temp);
-    //     },[data])
-
-    const handleCheck = (e, coinId) => {
-        console.log(watchlist)
-        watchlist[coinId]= !watchlist[coinId]
-        dispatch({type: SEND_WATCHLIST_REQUEST, payload: {coin: coinId, id, check: watchlist[coinId], watchlist}})
-        
-    }
-    
-    console.log(watchlist);
-
-
-   
-    
+    const state = useSelector ((store) => store.app);
+    const {watchlist} = state;
 
     const initialDescriptor =[
-        {
-            label: '#',
-            enable: true,
-            accessor: 'market_cap_rank',
-            render: (item) => {
-                if(username!="guest"){
-                    return <TableCell key={item.market_cap_rank} align='center'>
-                        <Checkbox checked={watchlist[item.id]} onChange={(e) => handleCheck(e, item.id)}/>
-                    {item.market_cap_rank}
-                    </TableCell>
-                }
-                return <TableCell key={item.market_cap_rank}>
-                    {item.market_cap_rank}
+        // {
+        //     label: '#',
+        //     enable: true,
+        //     accessor: 'market_cap_rank',
+        //     render: (item) => {
+        //         if(username!="guest"){
+        //             return <TableCell key={item.market_cap_rank} align='center'>
+        //                 <Checkbox checked={watchlist[item.id]} onChange={(e) => handleCheck(e, item.id)}/>
+        //             {item.market_cap_rank}
+        //             </TableCell>
+        //         }
+        //         return <TableCell key={item.market_cap_rank}>
+        //             {item.market_cap_rank}
     
-                </TableCell>
-            }
-        },
+        //         </TableCell>
+        //     }
+        // },
         {
             //TO DO: Some spacing between image and name
             label: 'Coin',
@@ -154,41 +124,54 @@ const CryptocurrenciesTableView = ({data}) => {
         }
     ]
 
-    const [descriptor, setDescriptor] = useState(initialDescriptor); 
+    const [descriptor, setDescriptor] = useState(initialDescriptor);
 
 
-    const handleClickTest = (item) => {
-        const newDescriptor = descriptor.map((col) => {
-            if(col.label == item){
-                col.enable=!col.enable;
-            }
-            return col;
-        })
-        setDescriptor(newDescriptor);
-    }
-
-    const handleTextField = (e) => {
-        setSearch(e.target.value);
-        console.log(e.target.value)
-    }
-
-    const [search, setSearch] = useState('');
-
-    
   return (
-    <>
-    <div className='toggle-button'>
-    {descriptor.map((item) => {
-            return <Button onClick={() => handleClickTest(item.label)} key={item.label}>{item.label}</Button>
-    
-        })}
-        <TextField onChange={handleTextField} id="standard-basic" label="Search" variant="standard" />
+    <div>
+        {username == "guest" ? <div>You need to be logged in in order to view your dashboard</div> : 
         
-    </div>
-        <MuiTable data={data.filter((coin) => coin.name.toLowerCase().includes(search.toLowerCase()))}//coin.toLowerCase().includes(search.toLowerCase())
+        <div>
+            <div>Hello {username}</div>
+        <Grid container>
+            <Grid item sx={4}>
+                <Card sx={{minWidth: 300}}>
+                    <CardContent>
+                        <Typography>Top Gains</Typography>
+                    </CardContent>
+                </Card>
+                
+            </Grid>
+            <Grid item sx={4}>
+            <Card sx={{minWidth: 300}}>
+                    <CardContent>
+                        <Typography>Top Losers</Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
+            <Grid item sx={4}>
+            <Card sx={{minWidth: 300}}>
+                    <CardContent>
+                        <Typography>Transaction History</Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
+        </Grid>
+
+
+        <Typography>WATCHLIST:</Typography>
+        <MuiTable data={data.filter((coin) => {
+            if(watchlist.hasOwnProperty(coin.id) && (watchlist[coin.id] === true))
+                return coin
+        })}
         descriptor={descriptor}/>
-    </>
+
+        </div>
+        
+         }
+    </div>
+    
   )
 }
 
-export default CryptocurrenciesTableView
+export default DashboardView
