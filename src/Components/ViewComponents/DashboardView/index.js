@@ -164,7 +164,9 @@ const DashboardView = ({username, data}) => {
             if(watchlist.hasOwnProperty(coin.id) && (watchlist[coin.id] === true))
                 return coin
         })}
-        descriptor={descriptor}/>
+        descriptor={descriptor}
+        setDescriptor={setDescriptor}
+        />
 
         </div>
         

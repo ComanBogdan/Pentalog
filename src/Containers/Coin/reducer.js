@@ -4,6 +4,7 @@ export const FETCH_COIN_FAILED = "FETCH_COIN_FAILED";
 
 export const FETCH_COIN_CHART_DATA_SUCCES = "FETCH_COIN_CHART_DATA_SUCCES"
 export const FETCH_COIN_CHART_DATA_FAILED = "FETCH_COIN_CHART_DATA_FAILED"
+export const FETCH_COIN_CHART_DATA_REQUEST = "FETCH_COIN_CHART_DATA_REQUEST"
 
 
 
@@ -26,6 +27,9 @@ export default (state = initialState, action) => {
         case FETCH_COIN_FAILED:
             return {...state, coinData: [], isLoading: false, error: action.payload}
 
+
+        case FETCH_COIN_CHART_DATA_REQUEST:
+            return {...state}
         case FETCH_COIN_CHART_DATA_SUCCES:
             return {...state, chartData: action.payload, error: ""}
 

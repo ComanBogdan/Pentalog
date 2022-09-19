@@ -5,19 +5,55 @@
       "username": "Bob",
       "password": "1234",
       "watchlist": {
-        "cardano": true,
-        "usd-coin": true,
-        "tether": true,
-        "ripple": true,
-        "bitcoin": false,
-        "ethereum": true,
+        "cardano": false,
+        "usd-coin": false,
+        "tether": false,
+        "ripple": false,
+        "bitcoin": true,
+        "ethereum": false,
         "binancecoin": false,
-        "binance-usd": false
+        "binance-usd": false,
+        "dogecoin": false,
+        "solana": false,
+        "chainlink": false,
+        "staked-ether": false,
+        "dai": false,
+        "matic-network": false,
+        "ftx-token": false,
+        "crypto-com-chain": false,
+        "monero": false,
+        "polkadot": false,
+        "shiba-inu": false,
+        "wrapped-bitcoin": false,
+        "leo-token": false,
+        "tron": false,
+        "avalanche-2": false,
+        "ethereum-classic": false,
+        "cosmos": false,
+        "litecoin": false,
+        "okb": false,
+        "bitcoin-cash": false,
+        "algorand": false,
+        "terra-luna": false,
+        "elrond-erd-2": true
       }
     },
     {
-      "name": "putTest",
-      "id": 6
+      "username": "test",
+      "password": "123",
+      "id": 7,
+      "watchlist": {}
+    },
+    {
+      "username": "gigel",
+      "password": "123",
+      "watchlist": {
+        "ethereum": true,
+        "binance-usd": true,
+        "solana": true,
+        "bitcoin": true
+      },
+      "id": 8
     }
   ]
 }
