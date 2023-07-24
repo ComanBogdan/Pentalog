@@ -5,7 +5,8 @@ const URL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&orde
 const coinUrl = "https://api.coingecko.com/api/v3/coins"
 const globalDataUrl = "https://api.coingecko.com/api/v3/global"
 
-const databaseURL = "http://localhost:3001"
+const databaseURL = "http://localhost:3002" //MongoDB 
+//const databaseURL = "http://localhost:3001" //FAKE JSON DB
 
 
 
@@ -36,6 +37,12 @@ const sendWatchlist = async (id, account) => {
     return resp.data
 }
 
+const sendTransaction = async (id, account) => {
+
+    const resp = await axios.put(`${databaseURL}/users/${id}`, account)
+    return resp.data
+}
+
 const fetchUserAccounts = async () => {
     const resp = await axios.get(`${databaseURL}/users`)
     return resp.data
@@ -52,4 +59,4 @@ const fetchCoinHistoricalData = async (name, days) => {
     return resp.data
 }
 
-export { fetchTableData, sendUserAccount, fetchUserAccounts, fetchCoinData, fetchCoinHistoricalData, sendWatchlist, fetchUser, fetchGlobalData }
+export { fetchTableData, sendUserAccount, fetchUserAccounts, fetchCoinData, fetchCoinHistoricalData, sendWatchlist, fetchUser, fetchGlobalData, sendTransaction }

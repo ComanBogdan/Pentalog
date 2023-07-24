@@ -6,6 +6,7 @@ import signupReducer from './Containers/Signup/reducer'
 import loginReducer from './Containers/Login/reducer'
 import appReducer from './Containers/App/reducer'
 import coinReducer from './Containers/Coin/reducer'
+import dashboardReducer from './Containers/Dashboard/reducer'
 
 import sagas from './middlewares'
 
@@ -21,6 +22,7 @@ export default configureStore({
         login: loginReducer,
         app: appReducer,
         coin: coinReducer,
+        dashboard: dashboardReducer,
     },
     middleware: [sagaMiddleware],
 })

@@ -11,6 +11,7 @@ import {
 } from "chart.js";
 
 import { Line } from "react-chartjs-2";
+import { green } from "@mui/material/colors";
 
 ChartJS.register(
   CategoryScale,
@@ -41,6 +42,23 @@ const LineChart = ({ data, name, days }) => {
 
   const options = {
     responsive: true,
+    scales: {
+      x: {
+        ticks: {
+          // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+          autoSkip: true,
+          maxTicksLimit: 8,
+        }
+      },
+      y: {
+        ticks: {
+          beginAtZero:true,
+          callback: function(value, index, values) {
+                  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '$';
+          }
+      },
+      }
+    },
     plugins: {
       legend: {
         position: "top",
@@ -65,6 +83,8 @@ const LineChart = ({ data, name, days }) => {
     ],
   });
 
+  console.log(data.prices)
+  
   useEffect(() => {
     if (data.length !== 0) {
       setChartData({
@@ -75,6 +95,9 @@ const LineChart = ({ data, name, days }) => {
             label: "price",
             data: data?.prices.map((item) => item[1]),
             // data: [3,5,7]
+            borderColor: '#6ED3B3',
+            tension: 0.5,
+            pointBorderColor: 'transparent',
           },
         ],
       });

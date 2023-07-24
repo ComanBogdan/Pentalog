@@ -10,7 +10,7 @@
         "tether": false,
         "ripple": false,
         "bitcoin": true,
-        "ethereum": false,
+        "ethereum": true,
         "binancecoin": false,
         "binance-usd": false,
         "dogecoin": false,
@@ -36,6 +36,39 @@
         "algorand": false,
         "terra-luna": false,
         "elrond-erd-2": true
+      },
+      "transaction": {
+        "bitcoin": [
+          {
+            "quantity": "1",
+            "price": "15000",
+            "date": "2022-09-22T16:01"
+          },
+          {
+            "quantity": "2",
+            "price": "40000",
+            "date": "2022-09-22T17:04"
+          },
+          {
+            "quantity": "1",
+            "price": "15000",
+            "date": "2022-09-27T15:50"
+          }
+        ],
+        "ethereum": [
+          {
+            "quantity": "1",
+            "price": "1900",
+            "date": "2023-07-22T21:04"
+          }
+        ],
+        "tether": [
+          {
+            "quantity": "10000",
+            "price": "1",
+            "date": "2023-07-22T21:04"
+          }
+        ]
       }
     },
     {
@@ -54,6 +87,34 @@
         "bitcoin": true
       },
       "id": 8
+    },
+    {
+      "username": "dani",
+      "password": "mamacu",
+      "watchlist": {},
+      "id": 9,
+      "transaction": {
+        "dogecoin": [
+          {
+            "quantity": "1000000",
+            "price": "1",
+            "date": "2022-09-27T15:53"
+          }
+        ],
+        "ethereum": [
+          {
+            "quantity": "1",
+            "price": "500",
+            "date": "2022-09-27T15:53"
+          }
+        ]
+      }
+    },
+    {
+      "username": "test3",
+      "password": "1234",
+      "watchlist": {},
+      "id": 10
     }
   ]
 }

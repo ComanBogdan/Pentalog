@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import { SET_ACCOUNT_GUEST } from '../../../Containers/App/reducer';
 import { INITIAL_STATE } from '../../../Containers/Login/reducer';
-
+import logo from './search.png';
 const Navigation = () => {
 
   let navigate = useNavigate();
@@ -23,7 +23,8 @@ const Navigation = () => {
   return (
     <AppBar position='static'>
         <Toolbar>
-        <Typography component='div' sx={{flexGrow:1}}>Logo</Typography>
+        <Typography component='div' sx={{flexGrow:1}}><a href="/"><img style={{width: 40}} src={logo} /></a></Typography>
+        
 
         
         

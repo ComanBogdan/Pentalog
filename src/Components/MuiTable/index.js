@@ -104,7 +104,7 @@ const MuiTable = ({ data, descriptor, setDescriptor, setSearch }) => {
               {descriptor.map((col) => {
                 if (!(col.enable == false))
                   return (
-                    <TableCell key={`${col.label}`} align="center">
+                    <TableCell key={`${col.label}`} align={col.align || "center"}>
                       {col.label}
                     </TableCell>
                   );

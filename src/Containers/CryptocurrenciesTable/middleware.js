@@ -18,6 +18,7 @@ export function* cryptocurrenciesRequestMiddleware() {
 export function* cryptocurrenciesRequestMiddlewareHandler(action) {
   try {
     const resp = yield call(fetchTableData);
+    console.log(resp);
     yield put({ type: FETCH_CRYPTOCURRENCIES_SUCCES, payload: resp });
   } catch (e) {
     yield put({ type: FETCH_CRYPTOCURRENCIES_FAILED, payload: e.message });

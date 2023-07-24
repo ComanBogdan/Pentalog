@@ -37,7 +37,7 @@ export function* loginRequestMiddlewareHandler(action){
             yield put({type: SET_ACCOUNT_USERNAME, payload: {username: action.payload.username, id, watchlist}});
             
             yield put ({type: LOGIN_REQUEST_SUCCES});
-            yield delay(5000);
+            yield delay(1000);
             yield put({type: REDIRECT_AFTER_LOGIN});
         }
         else {

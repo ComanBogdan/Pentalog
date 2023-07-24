@@ -47,7 +47,7 @@ const CoinView = ({ id, data, days,setDays }) => {
       ) : (
         <div>
           <Grid container>
-            <Grid item md={8}>
+            <Grid className="padding-layout" item md={8}>
               <Paper className="padding-layout">
                 <Typography>Rank #{coinData.market_cap_rank}</Typography>
                 <Typography>
@@ -72,6 +72,7 @@ const CoinView = ({ id, data, days,setDays }) => {
                 <Typography>WATCHLIST ICON</Typography>
               </Paper>
               <Grid container className="padding-layout">
+                
                 <Grid item md={6}>
                   <Grid container>
                     <Grid item md={6}>
@@ -150,7 +151,7 @@ const CoinView = ({ id, data, days,setDays }) => {
               </Paper>
             </Grid>
 
-            <Grid item md={4}>
+            <Grid className="padding-layout" item md={4}>
               <Paper className="padding-layout">
                 <div className="info-section">
                   <Typography sx={{ fontWeight: 700 }}>Info</Typography>

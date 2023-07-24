@@ -39,6 +39,7 @@ const CryptocurrenciesTableView = ({ data }) => {
       //TO DO: Some spacing between image and name
       label: "Coin",
       enable: true,
+      align: "left",
       accessor: "name",
       render: (item) => {
         return (
@@ -51,6 +52,7 @@ const CryptocurrenciesTableView = ({ data }) => {
               <Box
                 component="img"
                 sx={{
+                  marginRight: "10px",
                   height: 20,
                   width: 20,
                 }}
@@ -65,10 +67,13 @@ const CryptocurrenciesTableView = ({ data }) => {
     {
       label: "Price",
       enable: true,
+      align: "right",
       accessor: "current_price",
       render: (item) => {
         return (
-          <TableCell key={`${item.current_price}_${item.name}`} align="center">
+          <TableCell
+          
+          key={`${item.current_price}_${item.name}`} align="right">
             {item.current_price.toLocaleString() + "$"}
           </TableCell>
         );
@@ -78,9 +83,10 @@ const CryptocurrenciesTableView = ({ data }) => {
       label: "Marketcap",
       enable: true,
       accessor: "market_cap",
+      align: "right",
       render: (item) => {
         return (
-          <TableCell key={`${item.market_cap}_${item.name}`} align="center">
+          <TableCell key={`${item.market_cap}_${item.name}`} align="right">
             {item.market_cap.toLocaleString() + " USD"}
           </TableCell>
         );
@@ -90,9 +96,10 @@ const CryptocurrenciesTableView = ({ data }) => {
       label: "24h Volume",
       enable: true,
       accesor: "total_volume",
+      align: "right",
       render: (item) => {
         return (
-          <TableCell key={`${item.total_volume}_${item.name}`} align="center">
+          <TableCell key={`${item.total_volume}_${item.name}`} align="right">
             {item.total_volume.toLocaleString() + " USD"}
           </TableCell>
         );

@@ -20,8 +20,7 @@ export default function withWatchlistHOC(Component) {
 
     const [newDescriptor, setNewDescriptor] = useState(descriptor);
 
-    console.log(newDescriptor);
-    console.log(watchlist);
+   
 
     useEffect(() => {
       const array = [...newDescriptor];

@@ -29,11 +29,6 @@ const App = () => {
                 <Route path="*" element={<p>error 404</p>} />
             </Routes>
         </Container>
-    
-        
-        
-      
-        
         <Footer/>
     </div>
   )
